@@ -14,9 +14,9 @@ const supabase = createClient(
   process.env.SUPABASE_SECRET
 );
 
-const question1 = "How would you rate your quality of sleep?";
-const question2 = "How many hours did you sleep?";
-const question3 = "Did you wake up by yourself?";
+const question1 = "💤 How would you rate your quality of sleep?";
+const question2 = "⏱ How many hours did you sleep?";
+const question3 = "🤔 Did you wake up by yourself?";
 
 const range = new ActionRowBuilder().addComponents(
   new ButtonBuilder()
@@ -72,7 +72,6 @@ module.exports = {
     await interaction.reply({
       content: question1,
       components: [range],
-      ephemeral: true,
     });
 
     const collector = interaction.channel.createMessageComponentCollector();
@@ -110,7 +109,7 @@ module.exports = {
 
         const { error } = await supabase.from("quantified").insert({
           question: question2,
-          type: "text",
+          type: "range",
           value: answer,
           source: "discord",
         });
@@ -143,8 +142,6 @@ module.exports = {
             content: "There was an error submitting data to Supabase!",
           });
         }
-
-        collector.stop();
       }
     });
   },

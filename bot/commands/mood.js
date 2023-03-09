@@ -19,19 +19,19 @@ const question = "What mood are you currently in?";
 const range = new ActionRowBuilder().addComponents(
   new ButtonBuilder()
     .setCustomId("happy")
-    .setLabel("Happy")
+    .setLabel("😄 Happy")
     .setStyle(ButtonStyle.Success),
   new ButtonBuilder()
     .setCustomId("sad")
-    .setLabel("Sad")
+    .setLabel("😭 Sad")
     .setStyle(ButtonStyle.Secondary),
   new ButtonBuilder()
     .setCustomId("indifferent")
-    .setLabel("Indifferent")
+    .setLabel("😐 Indifferent")
     .setStyle(ButtonStyle.Primary),
   new ButtonBuilder()
     .setCustomId("angry")
-    .setLabel("Angry")
+    .setLabel("😡 Angry")
     .setStyle(ButtonStyle.Danger)
 );
 
